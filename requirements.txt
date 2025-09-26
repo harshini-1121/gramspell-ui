@@ -1,0 +1,5 @@
+Flask==2.3.2
+python-docx==0.8.12
+language-tool-python==2.8.0
+pyspellchecker==0.7.2
+nltk==3.9.0

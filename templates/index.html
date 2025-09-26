@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GramSpell - Grammar Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Grammar Checker & Rephraser</h1>
+
+        <!-- Text input form -->
+        <form method="POST" enctype="multipart/form-data" class="text-form">
+            <textarea name="text" placeholder="Enter or paste your text here...">{{ original }}</textarea>
+            <button type="submit" name="action" value="check" class="btn-primary">Check Grammar</button>
+        </form>
+
+        <div class="divider"><span>OR</span></div>
+
+        <!-- File upload form -->
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <label class="custom-file-upload">
+                <input type="file" name="file" accept=".docx">
+                Upload Word Document
+            </label>
+            <button type="submit" name="action" value="upload" class="btn-upload">Upload</button>
+        </form>
+
+        {% if corrected %}
+            <h2>Corrected Text:</h2>
+            <div class="output">{{ corrected }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
